@@ -141,13 +141,13 @@ inf_int operator+(const inf_int &a, const inf_int &b) {
     }
   }
   if (a.length > b.length) {
-    //겹치는 부분
+    //duplicated part
     for (int i = 0; i < b.length; i++) {
       int addition = (a.digits[i] - '0') + (b.digits[i] - '0') + carry;
       tmp += (addition % 10) + '0';
       carry = addition / 10;
     }
-    //남는 부분
+    //remain part
     for (int i = b.length; i < a.length; i++) {
       int addition = (a.digits[i] - '0') + carry;
       tmp += (addition % 10) + '0';
@@ -161,13 +161,13 @@ inf_int operator+(const inf_int &a, const inf_int &b) {
     result.thesign = a.thesign;
     return result;
   } else {
-    //겹치는 부분
+    //duplicated part
     for (int i = 0; i < a.length; i++) {
       int addition = (a.digits[i] - '0') + (b.digits[i] - '0') + carry;
       tmp += (addition % 10) + '0';
       carry = addition / 10;
     }
-    //남는 부분
+    //remain part
     for (int i = a.length; i < b.length; i++) {
       int addition = (b.digits[i] - '0') + carry;
       tmp += (addition % 10) + '0';
@@ -205,7 +205,7 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
   }
   //a > b;
   if (compare(a, b)) {
-    //겹치는 부분
+    //duplicated part
     for (int i = 0; i < b.length; i++) {
       int subtraction = ((a.digits[i] - '0') - (b.digits[i] - '0') - carry);
       if (subtraction < 0) {
@@ -216,7 +216,7 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
       }
       tmp += subtraction + '0';
     }
-    //겹치지 않는 부분
+    //remain part
     for (int i = b.length; i < a.length; i++) {
       int subtraction = ((a.digits[i] - '0') - carry);
       if (subtraction < 0) {
@@ -241,7 +241,7 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
     result.thesign = true;
     return result;
   } else {
-    //겹치는 부분
+    //duplicated part
     for (int i = 0; i < a.length; i++) {
       int subtraction = ((b.digits[i] - '0') - (a.digits[i] - '0') - carry);
       if (subtraction < 0) {
@@ -252,7 +252,7 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
       }
       tmp += subtraction + '0';
     }
-    //겹치지 않는 부분
+    //remain part
     for (int i = a.length; i < b.length; i++) {
       int subtraction = ((b.digits[i] - '0') - carry);
       if (subtraction < 0) {
