@@ -12,7 +12,7 @@ make
 4. Paste this command to run this Program
 ```shell
 
-./prob1.out
+./prob2.out
 
 ```
 5. Enjoy!
