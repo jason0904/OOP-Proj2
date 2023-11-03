@@ -198,9 +198,9 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
       result.thesign = true;
       return a + result;
     } else {
-      result = a;
-      result.thesign = true;
-      return b + result;
+      result = b;
+      result.thesign = false;
+      return a + result;
     }
   }
   //a > b;
