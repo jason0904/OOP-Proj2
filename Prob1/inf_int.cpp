@@ -238,7 +238,8 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
     for (int i = 0; i < tmp.length(); i++) {
       result.digits[i] = tmp[i];
     }
-    result.thesign = true;
+    if(a.thesign) result.thesign = true;
+    else result.thesign = false;
     return result;
   } else {
     //duplicated part
@@ -274,7 +275,8 @@ inf_int operator-(const inf_int &a, const inf_int &b) {
     for (int i = 0; i < tmp.length(); i++) {
       result.digits[i] = tmp[i];
     }
-    result.thesign = false;
+    if(a.thesign) result.thesign = false;
+    else result.thesign = true;
     return result;
   }
 }
